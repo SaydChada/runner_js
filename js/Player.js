@@ -29,7 +29,6 @@ function Player(image, width, height){
         // jump if not currently jumping or falling
         if (spaceBar.isOnKeyDown && this.dy === 0 && !this.jump.jumping) {
             this.jump.jumping = true;
-            this.speed += 0.4;
             this.dy = this.jump.dy;
         }
 

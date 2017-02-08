@@ -44,7 +44,7 @@ Math.randomInt = function (min, max) {
 };
 
 // Check and return number in range
-Math.maxValueIn = function bound(value, min, max) {
+Math.maxValueIn = function (value, min, max) {
     return Math.max( Math.min(value, max), min);
 };
 
@@ -66,5 +66,5 @@ Image.prototype.asSprite = function(frameWidth, frameHeight, frameSpeed) {
  Game vars config
  */
 
-const GAME_SPEED = 12;
+const GAME_SPEED = 10;
 const BLOCK_WIDTH = 32;

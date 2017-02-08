@@ -118,6 +118,10 @@
             drawAndClean(decords);
             // finaly update score
             ctx.fillText('Score: ' + score, canvas.width * 0.75, 30);
+
+            if(score % 50 === 0 && score > 0){
+                // player.speed += 0.4;
+            }
         },
         addElement: function(){
 
@@ -208,8 +212,6 @@
 
         game.init.call({player : player, images: images});
 
-        // background.reset(player.speed);
-
         animationLoop();
     }
 
@@ -240,6 +242,9 @@
         plateform.height = 2;
         plateform.length = 15;
         plateform.margin = 0;
+        lava = [];
+        decords = [];
+        plateform.list = [];
         startGame();
         this.style.display = 'none';
 
