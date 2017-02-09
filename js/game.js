@@ -9,6 +9,7 @@
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var score = 0;
+    var cvDisabled = true;
 
     // Delay sprite adding element
     var spriteDelay = 0;
@@ -119,11 +120,12 @@
             ctx.fillText('Score: ' + score, canvas.width * 0.75, 30);
 
             // After 500 score unlock cv text display until score 1100
-            if (score > 500 && score < 600 ){
+            if (score > 500 && score < 600  && cvDisabled){
                 ctx.font = '45px arial, sans-serif';
                 ctx.fillStyle = '#ff566f';
                 ctx.fillText('CV débloqué !!' , canvas.width * 0.3, 50);
                 document.getElementById('cv_button').classList.remove('disabled');
+                cvDisabled = false;
             }
         },
         addElement: function(){
