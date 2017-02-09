@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Element constructor
  * @param {int} x : x position of the elem
@@ -11,14 +12,14 @@ function Element(x, y, speed, image) {
     this.y      = y;
     this.width  = 32;
     this.height = 32;
-    this.image   = image;
+    this.speed  = speed;
+    this.image  = image;
 
     /**
      * Draw to context
      */
     this.draw = function(ctx) {
-        this.dx = -speed;
-        this.updateXandY();
+        this.updateXandY(this.speed);
         ctx.save();
         ctx.drawImage(this.image, this.x, this.y);
         ctx.restore();

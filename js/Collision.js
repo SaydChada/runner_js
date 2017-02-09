@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Constructor Colision to handle colission
  * @constructor
@@ -9,9 +10,14 @@ function Collision() {
     this.dy = 0;
 }
 
-Collision.prototype.updateXandY = function() {
-    this.x += this.dx;
-    this.y += this.dy;
+/**
+ * Update x and y vector
+ * @param adjustmentX adjustment in x
+ * @param adjustmentY adjustment in y
+ */
+Collision.prototype.updateXandY = function(adjustmentX, adjustmentY) {
+    this.x += this.dx - (adjustmentX || 0);
+    this.y += this.dy - (adjustmentY || 0);
 };
 
 Collision.prototype.impactWith = function(target) {

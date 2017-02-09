@@ -1,4 +1,4 @@
-
+'use strict';
 /**
  * Paul Irish's requestAnimationFrame polyfill
  */
@@ -64,7 +64,8 @@ Image.prototype.asSprite = function(frameWidth, frameHeight, frameSpeed) {
 
 /*
  Game vars config
+ TODO move to config file
  */
 
-const GAME_SPEED = 10;
+const GAME_SPEED = 10.5;
 const BLOCK_WIDTH = 32;

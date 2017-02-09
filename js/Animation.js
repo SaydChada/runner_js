@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Handle sprite animation cycle
  *

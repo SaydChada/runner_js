@@ -1,7 +1,5 @@
 (function () {
     'use strict';
-
-
     /*
      |--------------------------------------------------------------------------
      | Config vars for game
@@ -29,7 +27,6 @@
     };
     var lava = [];
     var decords = [];
-
 
 
     /*
@@ -83,7 +80,6 @@
             // player is by default on fall state
             var player = this.player;
             player.jump.falling = true;
-            player.speed += 1/1000;
 
             // Internal function handle update and clean of elements
             function drawAndClean(elements, checkImpact){
@@ -155,8 +151,13 @@
             else {
                 //plateform separation space
                 plateform.margin =Math.randomInt(player.speed - 2, player.speed);
+
                 // Prevent displaying of plateform impossible to reach, height to far from last plateform height
-                plateform.height = Math.maxValueIn(Math.randomInt(0, plateform.height + Math.randomInt(0, 2)), 0, 4);
+                var newHeight = Math.maxValueIn(Math.randomInt(0, plateform.height + Math.randomInt(0, 2)), 0, 4);
+                if(newHeight === plateform.height && newHeight < 4){
+                    newHeight += 1;
+                }
+                plateform.height = newHeight;
                 //plateform length
                 plateform.length = Math.randomInt(4 , 20);
             }

@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Load asset before game start
  * @param {function} game : callback of the game

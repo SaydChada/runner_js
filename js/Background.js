@@ -1,3 +1,4 @@
+'use strict';
 /**
  *
  * Background object, handle draw and reset of sky, paralaxBack and paralaxFront
@@ -38,7 +39,7 @@ function BackGround(bgImage, skyCfg, paralaxBackCfg, paralaxFrontCfg){
      * @param element
      * @param ctx
      */
-    drawElement = function(element, ctx){
+    var drawElement = function(element, ctx){
         // Check element if full displayed on canvas then reset x
         if (Math.abs(element.x) >= element.image.width)
         {
