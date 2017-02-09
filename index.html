@@ -3,21 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Iframe Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="game.css" type="text/css" media="screen">
 </head>
 <body>
-  <div class="game-wrapper">
-    <canvas id="canvas" width="800" height="480">
-      <p>Votre navigateur ne supporte pas la balise canvas !</p>
-      <p>Vous pouvez utiliser un navigateur comme <a href="www.google.com/chrome/">Google Chrome</a> pour afficher cette balise correctement.</p>
-    </canvas>
-    <div id="game-over">
-      <a href="#" id="restart">Ressayer?</a>
+<div class="container">
+    <div class="row col-md-8 col-md-offset-2">
+
+        <blockquote class="blockquote">
+            <p> Appuyez sur la touche espace de votre clavier pour sauter.</p>
+            <p>Débloquez le cv après un score de 500 !!</p>
+        </blockquote>
+
     </div>
-      <div id="game-start">
-          <a href="#" id="start">Jouer !</a>
-      </div>
-  </div>
+    <div class="game-wrapper row">
+        <canvas id="canvas" width="800" height="480">
+            <p>Votre navigateur ne supporte pas la balise canvas !</p>
+            <p>Vous pouvez utiliser un navigateur comme <a href="www.google.com/chrome/">Google Chrome</a> pour afficher cette balise correctement.</p>
+        </canvas>
+        <div id="game-over">
+            <a href="#" id="restart" class="btn btn-warning" title="rejouer"><i class="fa fa-refresh"></i></a>
+        </div>
+        <div id="game-start">
+            <a href="#" id="start" class="btn btn-primary" title="jouer"><i class="fa fa-play"></i></a>
+        </div>
+    </div>
+    <hr>
+    <div class="row text-center">
+        <a id="cv_button" title="voir le cv" href="./files/CV_CHADA_2017.pdf" class="btn btn-primary disabled text-unstyled">
+          Voir mon cv
+        </a>
+    </div>
+    <p>&nbsp;</p>
+</div>
+
+
   <script type="text/javascript" src="js/Collision.js"></script>
   <script type="text/javascript" src="js/Animation.js"></script>
   <script type="text/javascript" src="js/Element.js"></script>

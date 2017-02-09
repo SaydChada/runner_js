@@ -7,9 +7,9 @@
      | Config vars for game
      |--------------------------------------------------------------------------
      */
+
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-    ctx.font = '25px arial, sans-serif';
     var score = 0;
 
     // Delay sprite adding element
@@ -22,7 +22,7 @@
         width: 32,
         base: canvas.height - BLOCK_WIDTH,
         margin : 0,
-        length : 15,
+        length : 0,
         space: 64,
         list: [],
         elements: ['simple_blocks', 'blocks', 'block', 'plateform', 'plateform_gold']
@@ -44,7 +44,7 @@
     var game = {
         over : function(){
             document.getElementById('game-over').style.display = 'block';
-            restartBtn.style.display = 'block';
+            restartBtn.style.display = 'inline-block';
         },
         init: function(){
 
@@ -83,6 +83,7 @@
             // player is by default on fall state
             var player = this.player;
             player.jump.falling = true;
+            player.speed += 1/1000;
 
             // Internal function handle update and clean of elements
             function drawAndClean(elements, checkImpact){
@@ -117,10 +118,16 @@
             drawAndClean(lava);
             drawAndClean(decords);
             // finaly update score
+            ctx.fillStyle = 'black';
+            ctx.font = '25px arial, sans-serif';
             ctx.fillText('Score: ' + score, canvas.width * 0.75, 30);
 
-            if(score % 50 === 0 && score > 0){
-                // player.speed += 0.4;
+            // After 500 score unlock cv text display until score 1100
+            if (score > 500 && score < 600 ){
+                ctx.font = '45px arial, sans-serif';
+                ctx.fillStyle = '#ff566f';
+                ctx.fillText('CV débloqué !!' , canvas.width * 0.3, 50);
+                document.getElementById('cv_button').classList.remove('disabled');
             }
         },
         addElement: function(){
@@ -146,9 +153,12 @@
                 plateform.length--;
             }
             else {
+                //plateform separation space
                 plateform.margin =Math.randomInt(player.speed - 2, player.speed);
+                // Prevent displaying of plateform impossible to reach, height to far from last plateform height
                 plateform.height = Math.maxValueIn(Math.randomInt(0, plateform.height + Math.randomInt(0, 2)), 0, 4);
-                plateform.length = Math.randomInt(Math.floor(player.speed/2), player.speed * 4);
+                //plateform length
+                plateform.length = Math.randomInt(4 , 20);
             }
         }
     };
